@@ -1,7 +1,8 @@
 import React from 'react';
 import TodoList from './components/TodoComponents/TodoList';
 import TodoForm from './components/TodoComponents/TodoForm';
-import './components/TodoComponents/Todo'
+import './components/TodoComponents/Todo.css'
+
 
 const stuffTodo = [
 
@@ -52,6 +53,7 @@ class App extends React.Component {
     super();
     this.state = {
     todoList: stuffTodo,
+    
 
     };
     this.toggleCompleted = this.toggleCompleted.bind(this);
@@ -72,7 +74,7 @@ class App extends React.Component {
   toggleCompleted = id  => {
     //this.toggleCompleted
     console.log("index.js: App: toggleCompleted: id: ", id);
-    //const newState = {...this.state}
+    // const newState = {...this.state}
     const newState = {
       ...this.state,
       todoList: this.state.todoList.map(e => {

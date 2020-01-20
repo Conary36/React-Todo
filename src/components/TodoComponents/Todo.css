@@ -2,4 +2,5 @@
 
 .item.completed{ 
     text-decoration: line-through;
+    /* background-color: #d17d7c; */
 }

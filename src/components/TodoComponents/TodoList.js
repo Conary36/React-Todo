@@ -9,10 +9,10 @@ const TodoList = ({toggleCompleted, clearCompleted, stuffTodo}) => {
     return(
         <div className="things-todo">
 
-            {stuffTodo.map(e => (
+            {stuffTodo.map(item => (
                 <div><Todo 
-                    key={e.id}
-                    item={e}
+                    key={item.id}
+                    item={item}
                     toggleCompleted={toggleCompleted}
                 /></div>
             ))}
