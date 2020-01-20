@@ -1,6 +1,7 @@
 import React from 'react';
 import TodoList from './components/TodoComponents/TodoList';
 import TodoForm from './components/TodoComponents/TodoForm';
+import './components/TodoComponents/Todo'
 
 const stuffTodo = [
 
@@ -47,18 +48,21 @@ class App extends React.Component {
   // you will need a place to store your state in this component.
   // design `App` to be the parent component of your application.
   // this component is going to take care of state, and any change handlers you need to work with your state
-
-  state = {
+  constructor(){
+    super();
+    this.state = {
     todoList: stuffTodo,
 
-  };
+    };
+    this.toggleCompleted = this.toggleCompleted.bind(this);
+}
 
   addNewTodo = newStuffTodo => {
     const newState = {
       ...this.state,
       todoList: [
         ...this.state.todoList,
-        { name: newStuffTodo, completed: false, id: Date.now() }
+        { task: newStuffTodo, completed: false, id: Date.now() }
       ]
     };
     this.setState(newState);
@@ -102,10 +106,14 @@ class App extends React.Component {
     return (
 
       <div className='App'>
+
           <div className='header'>
+
             <h2>Welcome to your Todo App!</h2>
             <TodoForm addNewTodo={this.addNewTodo}/>
+
           </div>
+
           <TodoList
             stuffTodo={this.state.todoList}
             toggleCompleted={this.toggleCompleted}
